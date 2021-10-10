@@ -7,6 +7,7 @@ const morgan = require("morgan");
 // routes
 const userRoute = require("./routes/users");
 const authRoute = require("./routes/auth");
+const postsRoute = require("./routes/posts");
 
 dotenv.config();
 const app = express();
@@ -20,6 +21,7 @@ app.use(morgan("common"));
 
 app.use("/api/users", userRoute);
 app.use("/api/auth", authRoute);
+app.use("/api/posts", postsRoute);
 
 mongoose.connect(uri, () => {
     console.log("Connected to mongo!");
